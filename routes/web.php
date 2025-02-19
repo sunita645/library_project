@@ -31,6 +31,14 @@ route::get('/edit_category/{id}',[AdminController::class,'edit_category']);
 
 route::post('/update_category/{id}',[AdminController::class,'update_category']);
 
+route::get('/add_book',[AdminController::class,'add_book']);
+route::post('/store_book',[AdminController::class,'store_book']);
+
+route::get('/show_book',[AdminController::class,'show_book']);
+
+
+
+
 
 
 

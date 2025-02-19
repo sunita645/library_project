@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Book;
 
 use App\Models\Category;
 
@@ -65,5 +66,44 @@ class AdminController extends Controller
         $data->cat_title=$request->cat_name;
         $data->save();
         return redirect('/category_page')->with('message', 'Category Updated Successfully');
+    }
+
+    public function add_book(){
+        $data= Category::all();
+
+        return view('admin.add_book',compact('data'));
+    }
+
+    public function store_book(Request $request){
+        $data = new Book;
+        $data->title  = $request->book_name;
+        $data->author_name  = $request->author_name;
+        $data->price  = $request->price;
+        $data->quantity  = $request->quantity;
+        $data->description  = $request->description;
+        $data->category_id  = $request->category;
+        $book_image=$request->book_img;
+        $author_image=$request->author_img;
+
+        if($book_image){
+            $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
+            $request->book_img->move('book',$book_image_name);
+            $data->book_img =  $book_image_name;
+        }
+
+        if($author_image){
+            $author_image_name = time().'.'.$author_image->getClientOriginalExtension();
+            $request->author_img->move('book',$author_image_name);
+            $data->author_img =  $author_image_name;
+        }
+        $data->save();
+        return redirect()->back();
+
+    }
+
+    public function show_book(){
+        $book = Book::all();
+
+        return view('admin.show_book', compact('book'));
     }
 }
