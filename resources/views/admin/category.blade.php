@@ -49,10 +49,10 @@
         <div class="page-header">
           <div class="container-fluid">
       
-
             <div class="div_center">
 
                 <div>
+                    
                     @if(session()->has('message'))
 
                     <div class="alert alert-success">
@@ -61,6 +61,8 @@
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                             X
                         </button>
+                        {{session()->get('message')}}
+
                     </div>
                     
                     @endif
@@ -94,7 +96,6 @@
                             <td>
 
                                 <a class="btn btn-info" href="{{url('edit_category',$data->id)}}">Update</a>
-
 
                                 <a onclick="confirmation(event)" class="btn btn-danger" href="{{url('cat_delete',$data->id)}}">Delete</a>
                             </td>

@@ -106,4 +106,19 @@ class AdminController extends Controller
 
         return view('admin.show_book', compact('book'));
     }
+
+    public function book_delete($id){
+        $data = Book::find($id);
+
+        $data->delete();
+         return redirect()->back()->with('message','Book Deleted Successfuuly');
+    }
+
+    public function edit_book($id){
+
+        $data = Book::find($id);
+        $category= Category::all();
+
+        return view ('admin.edit_book',compact('data','category'));
+    }
 }
