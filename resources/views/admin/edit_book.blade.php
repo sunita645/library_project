@@ -18,6 +18,10 @@
         display: inline-block;
         width: 200px;
     }
+
+    .div_pad{
+        padding: 15px;
+    }
    </style>
   </head>
   <body>
@@ -35,31 +39,33 @@
             <div class="div_center">
                 <h1 class="title">Update Book</h1>
 
-                <form>
-                    <div>
+                <form action="{{url('update_book',$data->id)}}" method="Post" enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="div_pad">
                         <label>Book title</label>
                         <input type="text" name="title" value="{{$data->title}}">
                     </div>
-                    <div>
+                    <div class="div_pad">
                         <label>Author Name</label>
                         <input type="text" name="author_name" value="{{$data->author_name}}">
                     </div>
-                    <div>
+                    <div class="div_pad">
                         <label>Price</label>
                         <input type="text" name="price" value="{{$data->price}}">
                     </div>
-                    <div>
+                    <div class="div_pad">
                         <label>Quantity</label>
                         <input type="text" name="quantity" value="{{$data->quantity}}">
                     </div>
-                    <div>
+                    <div class="div_pad">
                         <label>Description</label>
                         <textarea name="description">{{$data->description}}</textarea>
                     </div>
 
-                    <div>
+                    <div class="div_pad">
                         <label>Category</label>
-                        <select>
+                        <select name="category">
                             <option value="$data->category_id">{{$data->category->cat_title}}</option>
 
                             @foreach ($category as $category)
@@ -67,28 +73,28 @@
                             @endforeach
                         </select>
 
-                        <div>
+                        <div class="div_pad">
                             <label>Current Author Image </label>
-                            <img style="width: 80px; border-radius:50%"src="/author/{{$data->author_img}}">
+                            <img style="width: 80px; border-radius:50%; margin:auto;"src="/author/{{$data->author_img}}">
                         </div>
 
-                        <div>
+                        <div class="div_pad">
                             <label>Change Author Image</label>
                             <input type="file" name="author_img">
                         </div>
 
-                        <div>
+                        <div class="div_pad">
                             <label>Current Book Image </label>
-                            <img style="width: 80px;"src="/book/{{$data->book_img}}">
+                            <img style="width: 80px; margin:auto;"src="/book/{{$data->book_img}}">
                         </div>
 
-                        <div>
+                        <div class="div_pad">
                             <label> Change Book Image</label>
                             <input type="file" name="book_img">
 
                         </div>
 
-                        <div>
+                        <div class="div_pad">
                             <input class="btn btn-info" type="submit" value="Update Book">
                         </div>
 

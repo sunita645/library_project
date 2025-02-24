@@ -41,6 +41,9 @@ route::get('/book_delete/{id}',[AdminController::class,'book_delete']);
 
 route::get('/edit_book/{id}',[AdminController::class,'edit_book']);
 
+route::post('/update_book/{id}',[AdminController::class,'update_book']);
+
+
 
 
 
