@@ -89,6 +89,7 @@ class AdminController extends Controller
             $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
             $request->book_img->move('book',$book_image_name);
             $data->book_img =  $book_image_name;
+            
         }
 
         if($author_image){
@@ -122,7 +123,7 @@ class AdminController extends Controller
         return view ('admin.edit_book',compact('data','category'));
     }
 
-    public function update_book(Request $request){
+    public function update_book(Request $request,$id){
         $data = Book::find($id);
 
         $data->title = $request->title;
@@ -146,7 +147,8 @@ class AdminController extends Controller
             $request->author_img->move('book',$author_image_name);
             $data->author_img =  $author_image_name;
         }
-
+        $data->save();
+        return redirect('/show_book')->with('message', "Book updated successfully");
 
     }
 }

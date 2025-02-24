@@ -66,7 +66,7 @@
                     <div class="div_pad">
                         <label>Category</label>
                         <select name="category">
-                            <option value="$data->category_id">{{$data->category->cat_title}}</option>
+                            <option value="{{$data->category_id}}">{{$data->category->cat_title}}</option>
 
                             @foreach ($category as $category)
                             <option value="{{$category->id}}">{{$category->cat_title}}</option>

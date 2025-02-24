@@ -51,8 +51,7 @@
             @if(session()->has('message'))
 
             <div class="alert alert-success">
-                {{session()->get('message')}}
-
+               
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                     X
                 </button>
@@ -77,8 +76,6 @@
                         <th>Delete</th>
                         <th>Update</th>
 
-
-                        
                     </tr>
                     
                     @foreach ($book as $book)
@@ -91,11 +88,12 @@
                       <td>{{$book->category->cat_title}}</td>
 
                       <td>
-                        <img class="img_author" src="author/{{$book->author_img}}">
+                        <img class="img_author" src="{{ asset('author/' . $book->author_img) }}">
+
                       </td>
                              
                       <td>
-                        <img src="img_book" src="book/{{$book->book_img}}">
+                        <img class="img_book" src="{{ asset('book/' . $book->book_img) }}">
                       </td>
 
                       <td>
@@ -106,8 +104,6 @@
                       </td>
                   </tr>
                     @endforeach
-                    
-
                     
                 </table>
             </div>
