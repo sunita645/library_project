@@ -25,7 +25,9 @@ class AdminController extends Controller
 
             else if($user_type == 'user'){
 
-                return view('home.index');
+                $data=Book::all();
+
+                return view('home.index',compact('data'));
             }
         }
 
@@ -89,7 +91,7 @@ class AdminController extends Controller
             $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
             $request->book_img->move('book',$book_image_name);
             $data->book_img =  $book_image_name;
-            
+
         }
 
         if($author_image){
