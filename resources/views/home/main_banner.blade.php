@@ -1,7 +1,21 @@
 <!-- ***** Main Banner Area Start ***** -->
+
+
 <div class="main-banner">
     <div class="container">
       <div class="row">
+
+        @if(session()->has('message'))
+
+        <div class="alert alert-success">
+
+        {{session()->get('message')}}
+        <button type="button" class="close" data-bs-dismiss="alert" aria-hidden="true">X</button>
+
+        </div>
+        @endif
+
+
         <div class="col-lg-6 align-self-center">
           <div class="header-text">
             <h6>Book is Knowledge</h6>

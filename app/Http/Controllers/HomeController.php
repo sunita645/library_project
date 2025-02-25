@@ -27,12 +27,13 @@ class HomeController extends Controller
     $book_id = $id;
     $quantity = $data->quantity;
 
-    if($quantity>='1'){
+    if($quantity>='1'){ 
       if(Auth::id()){
         $user_id = Auth::user()->id;
         $borrow = new Borrow;
         $borrow->book_id = $book_id;
         $borrow->user_id = $user_id;
+        $borrow->status = 'Applied';
         $borrow->save();
       return redirect()->back()->with('message','A request is send to admin to borrow this book');
       }

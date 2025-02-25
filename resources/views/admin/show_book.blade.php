@@ -75,7 +75,6 @@
                         <th>Book Image</th>
                         <th>Delete</th>
                         <th>Update</th>
-
                     </tr>
                     
                     @foreach ($book as $book)
@@ -90,7 +89,7 @@
                       <td>
                         <img class="author_img" src="{{ asset('author/' . $book->author_img) }}">
                       </td>
-                      
+
                       <td>
                         <img class="book_img" src="{{ asset('book/' . $book->book_img) }}">
                       </td>
