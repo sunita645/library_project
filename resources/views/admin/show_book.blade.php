@@ -88,12 +88,11 @@
                       <td>{{$book->category->cat_title}}</td>
 
                       <td>
-                        <img class="img_author" src="{{ asset('author/' . $book->author_img) }}">
-
+                        <img class="author_img" src="{{ asset('author/' . $book->author_img) }}">
                       </td>
-                             
+                      
                       <td>
-                        <img class="img_book" src="{{ asset('book/' . $book->book_img) }}">
+                        <img class="book_img" src="{{ asset('book/' . $book->book_img) }}">
                       </td>
 
                       <td>

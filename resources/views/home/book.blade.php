@@ -7,6 +7,19 @@
             <h2><em>Items</em> Currently In The Market.</h2>
           </div>
         </div>
+
+       
+          @if(session()->has('message'))
+
+          <div class="alert alert-success">
+            <button type="button" class="close" data-bs-dismiss="alert" aria-hidden="true">X</button>
+
+          {{session()->get('message')}}
+        </div>
+          @endif
+        
+
+
         <div class="col-lg-6">
           <div class="filters">
             <ul>
@@ -37,11 +50,14 @@
                   <span class="bid">
                     Current Available<br><strong>{{$data->quantity}}</strong><br> 
                   </span>
-                  <span class="ends">
-                    Total<br><strong>20</strong><br>
-                  </span>
+                  
                   <div class="text-button">
-                    <a href="details.html">View Item Details</a>
+                    <a href="{{url('book_details',$data->id)}}">View Book Details</a>
+                  </div>
+                </br>
+
+                  <div class="">
+                    <a class="btn btn-primary" href="{{url('borrow_books',$data->id)}}">Apply to Borrow</a>
                   </div>
                 </div>
               </div>
