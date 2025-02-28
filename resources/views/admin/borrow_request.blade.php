@@ -6,7 +6,7 @@
     .center{
         text-align:center;
         margin:auto;
-        width:60%;
+        width:90%;
         border: 1px solid white;
         margin-top: 60px;
     }
@@ -37,7 +37,9 @@
                     <th>Phone</th>
                     <th>Book title</th>
                     <th>Quantity</th>
+                    <th>Borrow Status</th>
                     <th>Book Image</th>
+                    <th>Change Status</th>
                 </tr>
 
                 @foreach($data as $data)
@@ -45,9 +47,18 @@
                     <td>{{$data->user->name}}</td>
                     <td>{{$data->user->email}}</td>
                     <td>{{$data->user->phone}}</td>
-                    <td>{{$data->user->title}}</td>
-                    <td>{{$data->user->quantity}}</td>
-                    <td></td>
+                    <td>{{$data->book->title}}</td>
+                    <td>{{$data->book->quantity}}</td>
+
+                    <td>{{$data->status}}</td>
+                    <td>
+                        <img style="height: 150px; width:90px" src="book/{{$data->book->book_img}}">
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" href="{{url('approve_book',$data->id)}}">Approved</a>
+                        <a class="btn btn-danger" href="">Rejected</a>
+                        <a class="btn btn-info" href="{{url('return _book',$data->id)}}">Returned</a>
+                    </td>
                 </tr>
                 @endforeach
 
