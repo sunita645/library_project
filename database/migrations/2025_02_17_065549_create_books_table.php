@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('book_img')->nullable();
             $table->string('author_img')->nullable();
 
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -185,7 +185,7 @@ class AdminController extends Controller
         }
     }
 
-    
+
     public function return_book($id){
 
         $data = Borrow::find($id);
@@ -205,10 +205,16 @@ class AdminController extends Controller
             $book_qty = $book->quantity + '1';
             $book->quantity= $book_qty;
             $book->save();
-    
+                
             return redirect()->back();
         }
     }
 
+    public function rejected_book($id){
+        $data = Borrow::find($id);
+        $data->status = "rejected";
+        $data->save();
+        return redirect()->back();
+    }
 
 }

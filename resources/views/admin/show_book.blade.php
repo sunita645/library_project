@@ -84,7 +84,8 @@
                       <td>{{$book->price}}</td>
                       <td>{{$book->quantity}}</td>
                       <td>{{$book->description}}</td>
-                      <td>{{$book->category->cat_title}}</td>
+                      <td>{{ $book->category ? $book->category->cat_title : 'No Category' }}</td>
+
 
                       <td>
                         <img class="author_img" src="{{ asset('author/' . $book->author_img) }}">
