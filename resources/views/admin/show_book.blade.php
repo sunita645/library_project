@@ -24,7 +24,6 @@
     .img_author{
       width:80px;
       border-radius: 30%;
-
     }
 
     .img_book{
@@ -84,8 +83,7 @@
                       <td>{{$book->price}}</td>
                       <td>{{$book->quantity}}</td>
                       <td>{{$book->description}}</td>
-                      <td>{{ $book->category ? $book->category->cat_title : 'No Category' }}</td>
-
+                      <td>{{$book->category ? $book->category->cat_title : 'No Category' }}</td>
 
                       <td>
                         <img class="author_img" src="{{ asset('author/' . $book->author_img) }}">
@@ -93,8 +91,6 @@
 
                       <td>
                         <img class="book_img" src="{{ asset('book/' . $book->book_img) }}">
-                      </td>
-
                       <td>
                         <a onclick="confirmation(event)" href="{{url('book_delete',$book->id)}}" class="btn btn-danger">Delete</a>
                       </td>
